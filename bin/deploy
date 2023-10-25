@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshpass -f './secrets/sshpass.txt' scp -rp ./public_html oxynium@oxynium.org:~/
