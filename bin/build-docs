@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd docs || exit
+mdbook build

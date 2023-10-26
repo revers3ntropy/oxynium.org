@@ -1,0 +1,6 @@
+[book]
+authors = ["revers3ntropy"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Oxynium Docs"
