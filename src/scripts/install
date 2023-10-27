@@ -47,7 +47,7 @@ mv ./std.asm ~/.oxynium/std.asm
 echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
 
 cd ..
-sudo rm -rf ./oxynium
+rm -rf ./oxynium
 
 echo "Oxynium has been installed successfully!"
 echo 'Run `oxy` to get started'
