@@ -1,0 +1,53 @@
+#!/bin/bash
+
+branch="stable"
+if [ "$1" == "latest" ]; then
+    branch="master"
+fi
+
+if test -d "./oxynium"; then
+    echo "./oxynium exists and must be deleted before installing"
+    exit 1
+fi
+
+git clone -b "$branch" https://github.com/revers3ntropy/oxynium.git
+cd oxynium || exit 1
+
+if [ "$(which nasm)" == "" ]; then
+    echo "nasm is not installed"
+    exit 1
+fi
+
+if [ "$(which gcc)" == "" ]; then
+    echo "gcc is not installed"
+    exit 1
+fi
+
+if [ "$(which cargo)" == "" ]; then
+    echo "Cargo is not installed"
+    echo 'Please install Rust using `curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs | sh`'
+fi
+
+bin/compile_std
+bin/build
+
+if test -d "$HOME/.oxynium"; then
+    echo "WARNING: current version of Oxynium will be uninstalled"
+fi
+
+echo 'Setting up `~/.oxynium`...'
+
+rm -rf ~/.oxynium
+mkdir ~/.oxynium
+mkdir ~/.oxynium/bin
+
+mv ./res ~/.oxynium/bin/oxy
+mv ./std.asm ~/.oxynium/std.asm
+
+echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
+
+cd ..
+sudo rm -rf ./oxynium
+
+echo "Oxynium has been installed successfully!"
+echo 'Run `oxy` to get started'

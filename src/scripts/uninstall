@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf ~/.oxynium
+
+echo "Oxynium has been uninstalled successfully"
