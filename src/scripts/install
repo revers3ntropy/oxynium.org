@@ -49,5 +49,5 @@ echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
 cd ..
 rm -rf ./oxynium
 
-echo "Oxynium has been installed successfully!"
-echo 'Run `oxy` to get started'
+echo 'Oxynium (`oxy`) has been installed successfully!'
+echo 'Run `source ~/.bashrc` to use the `oxy` command, or start a new terminal session.'
