@@ -1,17 +1,12 @@
 #!/bin/bash
 
-bin/build-docs
+bin/build
 
-if test -d "./public_html"; then
-    echo "./public_html exists and must be deleted"
+if ! test -d "./public_html"; then
+    echo "./public_html does not exist"
     exit 1
 fi
-
-mkdir -p ./public_html/docs
-cp -r ./docs/book/* ./public_html/docs/
-cp -r ./src/* ./public_html/
 
 sshpass -f './secrets/sshpass.txt' scp -rp ./public_html oxynium@oxynium.org:~/
 
 rm -rf ./public_html
-rm -rf ./docs/book

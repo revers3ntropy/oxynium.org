@@ -1,4 +1,15 @@
 #!/bin/bash
 
+if test -d "./public_html/docs"; then
+    echo "./public_html/docs exists and must be deleted"
+    exit 1
+fi
+
 cd docs || exit
 mdbook build
+cd .. || exit
+
+mkdir ./public_html/docs
+cp -r ./docs/book/* ./public_html/docs/
+
+rm -rf ./docs/book

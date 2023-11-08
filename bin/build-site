@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if test -d "./public_html"; then
+    echo "./public_html exists and must be deleted"
+    exit 1
+fi
+
+mkdir ./public_html
+
+cp -r ./src/routes/* ./public_html/
+
+template=$(cat src/template.html)
+
+IFS=$'\n'; set -f
+for f in $(find ./public_html -name '*.html'); do
+    echo "Processing $f"
+    file_contents=$(cat "$f")
+    file_contents=${template//\$CONTENT\$/$file_contents}
+    rm "$f"
+    echo "$file_contents" > "$f"
+    html-minifier --collapse-whitespace --remove-comments \
+                  --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes \
+                  --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --minify-urls true \
+                  --output "$f" "$f"
+done
+unset IFS; set +f
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bin/build-site
+bin/build-docs
