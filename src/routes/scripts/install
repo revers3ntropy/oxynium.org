@@ -25,7 +25,7 @@ fi
 
 if [ "$(which cargo)" == "" ]; then
     echo "Cargo is not installed"
-    echo 'Please install Rust using `curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs | sh`'
+    echo 'Please install Rust from https://www.rust-lang.org/tools/install'
 fi
 
 bin/compile_std
@@ -50,4 +50,4 @@ cd ..
 rm -rf ./oxynium
 
 echo 'Oxynium (`oxy`) has been installed successfully!'
-echo 'Run `source ~/.bashrc` to use the `oxy` command, or start a new terminal session.'
+echo 'Run `source ~/.bashrc` or start a new terminal session to use the `oxy` command'

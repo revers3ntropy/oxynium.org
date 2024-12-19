@@ -7,6 +7,8 @@ if ! test -d "./public_html"; then
     exit 1
 fi
 
+echo "Uploading docs to oxynium.org"
+
 sshpass -f './secrets/sshpass.txt' scp -rp ./public_html oxynium@oxynium.org:~/
 
 rm -rf ./public_html
