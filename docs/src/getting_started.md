@@ -15,9 +15,16 @@ script.
 curl -sSL https://oxynium.org/scripts/install | bash -s -- latest
 ```
 
-### Requirements
+#### Requirements
 
 Oxynium will require `cargo`, `rust`, `nasm` and `gcc` to be installed on your system.
+
+## Upgrade
+To upgrade to the latest version of Oxynium, run the installation script:
+
+```bash
+curl -sSL https://oxynium.org/scripts/install | bash
+```
 
 ## Uninstallation
 
