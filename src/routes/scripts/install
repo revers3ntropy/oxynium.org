@@ -28,7 +28,6 @@ if [ "$(which cargo)" == "" ]; then
     echo 'Please install Rust from https://www.rust-lang.org/tools/install'
 fi
 
-bin/compile_std
 bin/build
 
 if test -d "$HOME/.oxynium"; then
@@ -42,7 +41,6 @@ mkdir ~/.oxynium
 mkdir ~/.oxynium/bin
 
 mv ./res ~/.oxynium/bin/oxy
-mv ./std.asm ~/.oxynium/std.asm
 
 echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
 
