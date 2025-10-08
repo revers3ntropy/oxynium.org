@@ -27,9 +27,9 @@ print(fib(N).Str()) // 55
 
 ```oxynium
 def main() {
-	for i in range(100) {
-		print(fizzbuzz(i))
-	}
+    for i in range(100) {
+        print(fizzbuzz(i))
+    }
 }
 
 def fizzbuzz (n: Int) Str {
