@@ -2,7 +2,7 @@
 
 branch="stable"
 if [ "$1" == "latest" ]; then
-    branch="master"
+    branch="main"
 fi
 
 if test -d "./oxynium"; then

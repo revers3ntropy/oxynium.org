@@ -10,3 +10,5 @@ fi
 sshpass -f './secrets/sshpass.txt' scp -rp ./public_html oxynium@oxynium.org:~/
 
 rm -rf ./public_html
+
+echo "Deployed successfully"
