@@ -10,9 +10,6 @@ if test -d "./oxynium"; then
     exit 1
 fi
 
-git clone -b "$branch" https://github.com/revers3ntropy/oxynium.git
-cd oxynium || exit 1
-
 if [ "$(which nasm)" == "" ]; then
     echo "nasm is not installed"
     exit 1
@@ -28,6 +25,9 @@ if [ "$(which cargo)" == "" ]; then
     echo 'Please install Rust from https://www.rust-lang.org/tools/install'
 fi
 
+git clone -b "$branch" https://github.com/revers3ntropy/oxynium.git
+cd oxynium || exit 1
+
 bin/build
 
 if test -d "$HOME/.oxynium"; then
@@ -42,7 +42,11 @@ mkdir ~/.oxynium/bin
 
 mv ./res ~/.oxynium/bin/oxy
 
-echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
+if [[ ":$PATH:" == *":$HOME/.oxynium"* ]]; then
+  echo "PATH already contains .oxynium dir"
+else
+  echo 'PATH=$PATH:$HOME/.oxynium/bin' >> ~/.bashrc
+fi
 
 cd ..
 rm -rf ./oxynium
