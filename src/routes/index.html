@@ -2,9 +2,9 @@
     <div class="max-w-xl w-full block">
         <div class="absolute top-0 left-0 right-0 h-20 bg-sky-200 -z-10"></div>
 
-        <div class="pt-20 pb-2">
-            <p class="text-8xl">
-                <img src="/assets/logo-light.png" alt="Oxynium logo" class="w-24 h-24 inline">
+        <div class="pt-24 pb-2">
+            <p class="text-5xl">
+                <img src="/assets/logo-light.png" alt="Oxynium logo" class="w-12 h-12 inline">
                 Oxynium
             </p>
         </div>
@@ -35,13 +35,45 @@
                 Read the docs at <a href="/docs" class="text-blue-500">oxynium.org/docs</a>
             </p>
             <p class="text-lg bold pt-4">
-                Install for Linux
+                Install for Linux / MacOS
             </p>
             <code>curl -sSL https://oxynium.org/scripts/install | bash</code>
             <p>
                 start a new terminal session, and then
             </p>
             <code>oxy hello_world.oxy</code>
+        </section>
+
+        <section class="pt-8">
+            <p class="text-2xl"> Examples </p>
+            <div class="flex gap-4 flex-col">
+            <pre><code class="language-oxynium">print("Hello, world!")</code></pre>
+
+            <pre><code class="language-oxynium">const N = 10
+def fibonacci (n: Int) Int {
+    if n <= 1 ->
+        return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+print(fibonacci(N).Str()); // 55</code></pre>
+
+            <pre><code class="language-oxynium">def main() {
+    for i in range(100) {
+        print(fizzbuzz(i));
+    }
+}
+
+def fizzbuzz (n: Int) Str {
+    if n % 3 == 0 \&\& n % 5 == 0 {
+        return "FizzBuzz";
+    }
+    if n % 3 == 0 -> return "Fizz";
+    if n % 5 == 0 -> return "Buzz";
+    return n.Str();
+}</code></pre>
+
+            </div>
         </section>
     </div>
 </div>

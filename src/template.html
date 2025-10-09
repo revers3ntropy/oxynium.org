@@ -18,7 +18,7 @@
             color: #fff;
             padding: 0.5rem;
             border-radius: 0.5rem;
-            white-space: pre-line;
+            white-space: pre;
             overflow-x: auto;
             max-width: 100%;
             font-size: 0.9rem !important; /* Tailwind's default font size is 1rem */
@@ -29,6 +29,99 @@
             font-weight: bold;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+    <script type="module">
+		import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/highlight.min.js';
+		hljs.registerLanguage('oxynium', () => ({
+			case_insensitive: false,
+			keywords: {
+				keyword: `break class const continue def else export extern for if impl in interface let mut new primitive return typeof while`,
+				literal: [
+					'Any',
+					'Bool',
+					'Channel',
+					'Char',
+					'Class',
+					'Collection',
+					'Debug',
+					'Def',
+					'Default',
+					'Display',
+					'Duration',
+					'Dyn',
+					'Error',
+					'File',
+					'Filter',
+					'Func',
+					'Hash',
+					'Hint',
+					'Instance',
+					'Instant',
+					'Int',
+					'Iter',
+					'LibC',
+					'List',
+					'Map',
+					'Marker',
+					'Mem',
+					'Net',
+					'Option',
+					'Path',
+					'Primitive',
+					'Process',
+					'Ptr',
+					'Range',
+					'Rc',
+					'Ref',
+					'Result',
+					'Set',
+					'Slice',
+					'Str',
+					'Task',
+					'Test',
+					'Thread',
+					'Time',
+					'Tuple',
+					'Unsafe',
+					'Utf8Str',
+					'Vec',
+					'Void',
+					'exit',
+					'false',
+					'input',
+					'panic',
+					'print',
+					'throw',
+					'range',
+					'true',
+					'#asm',
+					'#include',
+					'#include_asm_file',
+					'#unchecked_cast',
+					'Fn',
+					'self'
+				],
+			},
+			contains: [
+				{
+					className: 'string',
+					begin: '"',
+					end: '"'
+				},
+				{
+					className: 'character',
+					begin: "'",
+					end: "'",
+				},
+				hljs.COMMENT(
+					'//', // begin
+					'\n', // end
+				)
+			]
+		}));
+		hljs.highlightAll();
+    </script>
 </head>
 <body>
     $CONTENT$

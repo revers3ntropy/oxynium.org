@@ -11,16 +11,16 @@ print("Hello, World!")
 ## Fibonacci
 
 ```oxynium
-const N = 10
+const N = 10;
 
 def fib (n: Int) Int {
     if n <= 1 {
-        return n
+        return n;
     }
-    return fib(n - 1) + fib(n - 2)
+    return fib(n - 1) + fib(n - 2);
 }
 
-print(fib(N).Str()) // 55
+print(fib(N).Str()); // 55
 ```
 
 ## FizzBuzz
@@ -28,16 +28,16 @@ print(fib(N).Str()) // 55
 ```oxynium
 def main() {
     for i in range(100) {
-        print(fizzbuzz(i))
+        print(fizzbuzz(i));
     }
 }
 
 def fizzbuzz (n: Int) Str {
     if n % 3 == 0 && n % 5 == 0 {
-        return "FizzBuzz"
+        return "FizzBuzz";
     }
-    if n % 3 == 0 -> return "Fizz"
-    if n % 5 == 0 -> return "Buzz"
-    return n.Str()
+    if n % 3 == 0 -> return "Fizz";
+    if n % 5 == 0 -> return "Buzz";
+    return n.Str();
 }
 ```
