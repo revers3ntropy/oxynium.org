@@ -51,7 +51,7 @@
 
             <pre><code class="language-oxynium">const N = 10
 def fibonacci (n: Int) Int {
-    if n <= 1 ->
+    if n \&lt;= 1 -\&gt;
         return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
@@ -68,9 +68,40 @@ def fizzbuzz (n: Int) Str {
     if n % 3 == 0 \&\& n % 5 == 0 {
         return "FizzBuzz";
     }
-    if n % 3 == 0 -> return "Fizz";
-    if n % 5 == 0 -> return "Buzz";
+    if n % 3 == 0 -\&gt; return "Fizz";
+    if n % 5 == 0 -\&gt; return "Buzz";
     return n.Str();
+}</code></pre>
+
+                <pre><code class="language-oxynium">class LoggedQueue\&lt;T\&gt; {
+	backing_list: List\&lt;T\&gt;,
+
+	def make_empty\&lt;S\&gt;()
+		-\&gt; new LoggedQueue\&lt;S\&gt; { backing_list: List.empty!\&lt;S\&gt;() },
+
+	def push(self, item: T) LoggedQueue\&lt;T\&gt; {
+		self.backing_list.push(item);
+		print("added item " + self.len().Str());
+		return self;
+	}
+
+	def pop(self) T {
+		if self.len() \&lt; 1 -\&gt; panic("pop on empty list");
+		let val = self.backing_list.remove_at(0).unwrap();
+		print("popped item " + self.len().Str());
+		return val;
+	}
+
+	def len(self) -\&gt; self.backing_list.len()
+}
+
+def main() {
+	let q = LoggedQueue.make_empty!\&lt;Int\&gt;()
+            	.push(5)
+            	.push(6);
+
+    print("process: " + q.pop().Str()); // 5
+    print("then: " + q.pop().Str()); // 6
 }</code></pre>
 
             </div>
