@@ -41,15 +41,19 @@
             <p>
                 start a new terminal session, and then
             </p>
-            <code>oxy hello_world.oxy</code>
+            <code>oxy hello_world.oxy \&\& ./oxy-out</code>
         </section>
 
         <section class="pt-8">
-            <p class="text-2xl"> Examples </p>
+            <p class="text-2xl pb-2"> Examples </p>
             <div class="flex gap-4 flex-col">
-            <pre><code class="language-oxynium">print("Hello, world!")</code></pre>
-
-            <pre><code class="language-oxynium">const N = 10
+            <div>
+                <p class="text-lg">Hello World</p>
+                <pre><code class="language-oxynium">print("Hello, world!")</code></pre>
+            </div>
+            <div>
+                <p class="text-lg">Fibonacci Numbers</p>
+                <pre><code class="language-oxynium">const N = 10
 def fibonacci (n: Int) Int {
     if n \&lt;= 1 -\&gt;
         return n;
@@ -57,8 +61,10 @@ def fibonacci (n: Int) Int {
 }
 
 print(fibonacci(N).Str()); // 55</code></pre>
-
-            <pre><code class="language-oxynium">def main() {
+            </div>
+                <div>
+                    <p class="text-lg">FizzBuzz</p>
+                    <pre><code class="language-oxynium">def main() {
     for i in range(100) {
         print(fizzbuzz(i));
     }
@@ -72,8 +78,11 @@ def fizzbuzz (n: Int) Str {
     if n % 5 == 0 -\&gt; return "Buzz";
     return n.Str();
 }</code></pre>
+                </div>
 
-                <pre><code class="language-oxynium">class LoggedQueue\&lt;T\&gt; {
+                <div>
+                    <p class="text-lg">Queue class using Generics </p>
+                    <pre><code class="language-oxynium">class LoggedQueue\&lt;T\&gt; {
 	backing_list: List\&lt;T\&gt;,
 
 	def make_empty\&lt;S\&gt;()
@@ -103,7 +112,7 @@ def main() {
     print("process: " + q.pop().Str()); // 5
     print("then: " + q.pop().Str()); // 6
 }</code></pre>
-
+                </div>
             </div>
         </section>
     </div>
