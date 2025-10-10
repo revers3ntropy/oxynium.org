@@ -1,4 +1,4 @@
-<main class="md:flex px-4 items-center justify-center">
+<main class="md:flex p-4 items-center justify-center">
     <div class="md:max-w-xl w-full block">
         <div class="absolute top-0 left-0 right-0 h-20 bg-sky-200 -z-10"></div>
 
@@ -122,6 +122,31 @@ def main() {
 
     print("process: " + q.pop().Str()); // 5
     print("then: " + q.pop().Str()); // 6
+}</code></pre>
+                </div>
+                <div>
+                    <p class="text-lg">First-class / lambda functions</p>
+                    <pre><code class="language-oxynium">// all functions can be used as values
+def double_mapper(num: Int, _index: Int) Int {
+    return num * 2;
+}
+
+def main() {
+    let my_list = range(5).List();
+
+    // specify the type of the new list using generics
+    let doubled = my_list.map!\&lt;Int\&gt;(double_mapper);
+
+    // gives same value as 'doubled'
+    let _doubled_b = my_list.map!\&lt;Int\&gt;(
+        // lambda function shorthand for 'double_mapper'
+        fn (a: Int, _: Int) -\&gt; a * 2
+    );
+
+    // iterator support with 'for' loops
+    for i in doubled {
+        print(i.Str()); // 0, 2, 4, 6, 8
+    }
 }</code></pre>
                 </div>
             </div>
