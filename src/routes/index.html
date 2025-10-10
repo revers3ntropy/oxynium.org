@@ -1,14 +1,16 @@
-<div class="flex-center">
-    <div class="max-w-xl w-full block">
+<main class="md:flex px-4 items-center justify-center">
+    <div class="md:max-w-xl w-full block">
         <div class="absolute top-0 left-0 right-0 h-20 bg-sky-200 -z-10"></div>
 
         <div class="pt-24 pb-2">
             <p class="text-5xl">
-                <img src="/assets/logo-light.png" alt="Oxynium logo" class="w-12 h-12 inline">
+                <picture>
+                    <source srcset="/assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/logo-light.png" alt="Oxynium logo" class="w-12 h-12 inline">
+                </picture>
                 Oxynium
             </p>
         </div>
-
 
         <p class="font-bold">
             Oxynium is a statically typed, low level, compiled programming language
@@ -37,11 +39,11 @@
             <p class="text-lg bold pt-4">
                 Install for Linux / MacOS
             </p>
-            <code>curl -sSL https://oxynium.org/scripts/install | bash</code>
+            <pre><code class="language-bash">curl -sSL https://oxynium.org/scripts/install | bash</code></pre>
             <p>
                 start a new terminal session, and then
             </p>
-            <code>oxy hello_world.oxy \&\& ./oxy-out</code>
+            <pre><code class="language-bash">oxy hello_world.oxy \&\& ./oxy-out</code></pre>
         </section>
 
         <section class="pt-8">
@@ -54,7 +56,7 @@
             <div>
                 <p class="text-lg">Fibonacci Numbers</p>
                 <pre><code class="language-oxynium">const N = 10
-def fibonacci (n: Int) Int {
+def fibonacci(n: Int) Int {
     if n \&lt;= 1 -\&gt;
         return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
@@ -70,12 +72,14 @@ print(fibonacci(N).Str()); // 55</code></pre>
     }
 }
 
-def fizzbuzz (n: Int) Str {
+def fizzbuzz(n: Int) Str {
     if n % 3 == 0 \&\& n % 5 == 0 {
         return "FizzBuzz";
     }
-    if n % 3 == 0 -\&gt; return "Fizz";
-    if n % 5 == 0 -\&gt; return "Buzz";
+    if n % 3 == 0 -\&gt;
+        return "Fizz";
+    if n % 5 == 0 -\&gt;
+        return "Buzz";
     return n.Str();
 }</code></pre>
                 </div>
@@ -85,9 +89,14 @@ def fizzbuzz (n: Int) Str {
                     <pre><code class="language-oxynium">class LoggedQueue\&lt;T\&gt; {
 	backing_list: List\&lt;T\&gt;,
 
-	def make_empty\&lt;S\&gt;()
-		-\&gt; new LoggedQueue\&lt;S\&gt; { backing_list: List.empty!\&lt;S\&gt;() },
+    // static method as it doesn't take a 'self' parameter
+	def make_empty\&lt;S\&gt;() -\&gt;
+        // implicit return using '-\&gt;', and return type is inferred
+        new LoggedQueue\&lt;S\&gt; {
+            backing_list: List.empty!\&lt;S\&gt;()
+        },
 
+    // instance methods take an untyped 'self' parameter
 	def push(self, item: T) LoggedQueue\&lt;T\&gt; {
 		self.backing_list.push(item);
 		print("added item " + self.len().Str());
@@ -95,13 +104,15 @@ def fizzbuzz (n: Int) Str {
 	}
 
 	def pop(self) T {
-		if self.len() \&lt; 1 -\&gt; panic("pop on empty list");
+		if self.len() \&lt; 1 -\&gt;
+            panic("pop on empty list");
 		let val = self.backing_list.remove_at(0).unwrap();
 		print("popped item " + self.len().Str());
 		return val;
 	}
 
-	def len(self) -\&gt; self.backing_list.len()
+	def len(self) -\&gt;
+        self.backing_list.len()
 }
 
 def main() {
@@ -116,4 +127,4 @@ def main() {
             </div>
         </section>
     </div>
-</div>
+</main>
