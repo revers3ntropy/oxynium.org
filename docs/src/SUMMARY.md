@@ -1,13 +1,26 @@
 # Summary
 
 - [Getting Started](./getting_started.md)
-- [Examples](./examples.md)
+
+# Language Reference
+
+- [Program Structure](./program_structure.md)
+- [Variables and Constants](./variables.md)
+- [Types](./types.md)
+- [Operators](./operator_overriding.md)
+- [Control Flow](./loops_iterators.md)
 - [Functions](./functions.md)
+- [Anonymous Functions](./lambda_functions.md)
 - [Classes](./classes.md)
-- [Operator Overriding](./operator_overriding.md)
+- [Generics](./generics.md)
 - [Primitives](./primitives.md)
-- [Generic Functions and Classes](./generics.md)
-- [Loops and Iterators](./loops_iterators.md)
-- [Standard Library](./std_reference.md)
+- [typeof](./typeof.md)
+
+# Standard Library
+
+- [Standard Library Reference](./std_reference.md)
 - [Memory Management](./memory.md)
-- [Lambda (Anonymous) Functions](./lambda_functions.md)
+
+# Examples
+
+- [Examples](./examples.md)
