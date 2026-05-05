@@ -6,17 +6,21 @@ passed as arguments, and returned from functions.
 ## Syntax
 
 ```oxynium
-let double = fn (x: Int) Int { return x * 2 }
-let triple = fn (x: Int) Int -> x * 3
-let add    = fn (a: Int, b: Int) -> a + b
-let greet  = fn () -> print("hi")
+def main() {
+    let double = fn (x: Int) Int { return x * 2 }
+    let triple = fn (x: Int) Int -> x * 3
+    let add    = fn (a: Int, b: Int) -> a + b
+    let greet  = fn () -> print("hi")
+}
 ```
 
 The return type can be inferred with `->`. An explicit return type is written before `->`:
 
 ```oxynium
-let f = fn () Int -> 1     // explicit return type
-let g = fn () -> 1         // inferred return type
+def main() {
+    let f = fn () Int -> 1     // explicit return type
+    let g = fn () -> 1         // inferred return type
+}
 ```
 
 Anonymous functions **cannot be immediately invoked**:

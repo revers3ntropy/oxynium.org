@@ -30,13 +30,12 @@ if 0 { }      // TypeError: condition must be Bool
 if "" { }     // TypeError
 ```
 
-Parentheses around the condition are **not** allowed — `if (condition) { }` is a `SyntaxError`.
-
 ### Arrow syntax for single statements
 
 `->` replaces `{ }` when the body is a single statement:
 
 ```oxynium
+const x = 1
 if x > 0 -> print("positive")
 if x > 0 -> print("positive") else print("not positive")
 ```
@@ -46,10 +45,12 @@ if x > 0 -> print("positive") else print("not positive")
 **Conditional while** — runs while the condition is `Bool` true:
 
 ```oxynium
-let mut i = 0
-while i < 5 {
-    print(i.Str())
-    i += 1
+def main() {
+    let mut i = 0
+    while i < 5 {
+        print(i.Str())
+        i += 1
+    }
 }
 // prints 01234
 ```
@@ -66,8 +67,10 @@ while {
 **Arrow form** — single-statement body:
 
 ```oxynium
-let mut i = 0
-while i == 0 -> i = 1
+def main() {
+    let mut i = 0
+    while i == 0 -> i = 1
+}
 ```
 
 The condition (when present) must be `Bool`. `while 1 {}` is a `TypeError`.
@@ -78,12 +81,14 @@ The condition (when present) must be `Bool`. `while 1 {}` is a `TypeError`.
 inside `while` and `for` loops.
 
 ```oxynium
-let mut i = 0
-while {
-    i += 1
-    if i < 5 -> continue
-    print(i.Str())    // prints 5
-    break
+def main() {
+    let mut i = 0
+    while {
+        i += 1
+        if i < 5 -> continue
+        print(i.Str())    // prints 5
+        break
+    }
 }
 ```
 
@@ -163,7 +168,7 @@ Loop variables persist after the loop ends, holding the last values assigned:
 ```oxynium
 def main() {
     for c, i in "abc" {}
-    print(i.Str() + c.Str())    // 2c
+    print(i.Str() + c.Str())    // 3c
 }
 ```
 

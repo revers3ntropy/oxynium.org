@@ -83,9 +83,9 @@ Result<Option<Int>, Str>
 `T?` is syntactic sugar for `Option<T>`. Multiple `?` can be chained:
 
 ```oxynium
-let a: Int?        // Option<Int>
-let b: Int??       // Option<Option<Int>>
-let c: Str?        // Option<Str>
+let a: Int? = Option.none!<Int>()
+let b: Int?? = Option.none!<Int?>()
+let c: Str? = Option.some!<Str>("hi")
 ```
 
 ## Function types

@@ -81,9 +81,11 @@ An unmanaged pointer to a heap-allocated value. No garbage collection or referen
 Use `Ptr<T>` only for low-level code — prefer `Option<T>` or `Result<T, E>` for safe values.
 
 ```oxynium
-let p = Ptr.make!<Int>(42)
-print(p.unwrap().Str())     // 42
-print(p.is_null().Str())    // false
+def main() {
+    let p = Ptr.make!<Int>(42)
+    print(p.unwrap().Str())     // 42
+    print(p.is_null().Str())    // false
+}
 ```
 
 See [Memory Management](./memory.md) for full details.

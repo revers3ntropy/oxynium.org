@@ -147,8 +147,8 @@ For-loop variables persist after the loop ends, holding the last values seen:
 ```oxynium
 def main() {
     for c, i in "abc" {}
-    // c = 'c', i = 2 — last values from the loop
-    print(i.Str() + c.Str())    // 2c
+    // c = 'c', i = 3 — last values from the loop
+    print(i.Str() + c.Str())    // 3c
 }
 ```
 

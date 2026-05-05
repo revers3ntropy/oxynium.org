@@ -82,11 +82,13 @@ Unwraps an `Option<T>`. Returns the contained value if `some`, or the right-hand
 if `none`:
 
 ```oxynium
-let x: Int? = Option.none!<Int>()
-let v = x ?? 42     // v = 42
+def main() {
+    let x: Int? = Option.none!<Int>()
+    let v = x ?? 42     // v = 42
 
-let y: Int? = Option.some!<Int>(7)
-let w = y ?? 42     // w = 7
+    let y: Int? = Option.some!<Int>(7)
+    let w = y ?? 42     // w = 7
+}
 ```
 
 ## Compound assignment

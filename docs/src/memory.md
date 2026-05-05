@@ -37,9 +37,11 @@ print(p.unwrap().Str())     // 42
 ### Null pointers
 
 ```oxynium
-let null_ptr = #unchecked_cast(Ptr<Int>, 0)
-print(null_ptr.is_null().Str())    // true
-// calling null_ptr.unwrap() causes undefined behaviour
+def main() {
+    let null_ptr = #unchecked_cast(Ptr<Int>, 0)
+    print(null_ptr.is_null().Str())    // true
+    // calling null_ptr.unwrap() causes undefined behaviour
+}
 ```
 
 ### Safety

@@ -26,7 +26,9 @@ name is a `TypeError`.
 ## Instantiation (`new`)
 
 ```oxynium
-let p = new Point { x: 3, y: 4 }
+def main() {
+    let p = new Point { x: 3, y: 4 }
+}
 ```
 
 All fields must be provided. Providing the wrong fields, wrong count, or wrong types is a
@@ -69,8 +71,10 @@ class Point {
     def magnitude_sq(self) Int -> self.x * self.x + self.y * self.y
 }
 
-let p = new Point { x: 3, y: 4 }
-print(p.magnitude_sq().Str())    // 25
+def main() {
+    let p = new Point { x: 3, y: 4 }
+    print(p.magnitude_sq().Str())    // 25
+}
 ```
 
 ## Static methods
@@ -82,7 +86,10 @@ class Counter {
     count: Int,
     def zero() Counter -> new Counter { count: 0 }
 }
-let c = Counter.zero()
+
+def main() {
+    let c = Counter.zero()
+}
 ```
 
 **Calling instance methods statically** by passing the instance explicitly is also valid:
@@ -106,8 +113,11 @@ class Greeter {
         print(msg)
     }
 }
-new Greeter{}.say()        // Hello
-new Greeter{}.say("Hi")   // Hi
+
+def main() {
+    new Greeter{}.say()        // Hello
+    new Greeter{}.say("Hi")   // Hi
+}
 ```
 
 ## Static methods as first-class values

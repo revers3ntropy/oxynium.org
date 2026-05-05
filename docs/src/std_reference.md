@@ -173,8 +173,10 @@ Holds either a success value of type `T` or an error value of type `E`. The `ok:
 distinguishes the two cases.
 
 ```oxynium
-let success = Result.ok!<Int, Str>(42)
-let failure = Result.err!<Int, Str>("something went wrong")
+def main() {
+    let success = Result.ok!<Int, Str>(42)
+    let failure = Result.err!<Int, Str>("something went wrong")
+}
 ```
 
 | Method    | Description |
@@ -278,3 +280,5 @@ def exit(code=0)
 ```
 
 Terminates the program with the given exit code.
+de.
+de.
